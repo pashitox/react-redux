@@ -13,7 +13,7 @@ import './index.css';
 
 import Header from './common/header/header';
 import Routers from "./Route/Route";
-import WeatherLocation from './common/WeatherLocation/WeatherLocation';
+import WeatherLocation from './common/WeatherLocation/WeaterLocation/WeatherLocation';
 
 
 
