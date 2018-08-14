@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Component } from 'react';
-import WeatherLocation from './common/WeatherLocation/WeatherLocation';
+
 
 // Estilos
 import './index.css';
@@ -13,6 +13,9 @@ import './index.css';
 
 import Header from './common/header/header';
 import Routers from "./Route/Route";
+import WeatherLocation from './common/WeatherLocation/WeatherLocation';
+
+
 
 export default class Root extends Component {
 	render() {

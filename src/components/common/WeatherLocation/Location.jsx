@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Location = ({city}) => {  //super proooooo
+import  PropTypes from 'prop-types';
+
+const Ubicacion = ({city}) => {  //super proooooo
 
     //console.log(props);
     //debugger;
@@ -14,4 +16,8 @@ const Location = ({city}) => {  //super proooooo
         </h1></div>);
 };
 
-export default Location
+Ubicacion.propTypes = {
+    city: PropTypes.string.isRequired
+}
+
+export default Ubicacion

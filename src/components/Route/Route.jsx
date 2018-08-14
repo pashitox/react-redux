@@ -47,8 +47,8 @@ class Routers extends React.Component {
           loading: true
         }
     
-        this.login = this.login.bind(this);
-        this.logaut = this.logaut.bind(this);
+     //   this.login = this.login.bind(this);
+       // this.logaut = this.logaut.bind(this);
     
     
         
@@ -59,16 +59,16 @@ class Routers extends React.Component {
        
       }
     
-     login() {
+    // login() {
         
-        this.setState({ authed: true,
-        loading: true });
-      }
+      //  this.setState({ authed: true,
+        //loading: true });
+     // }
     
-      logaut() {
+    //  logaut() {
         
-        this.setState({ authed: false, loading: true });
-      }
+      //  this.setState({ authed: false, loading: true });
+     // }
      
      
     
