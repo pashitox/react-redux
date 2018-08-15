@@ -22,14 +22,16 @@ export default class Root extends Component {
 		return (
             
             <div>
-                 <Header />   
-                 <div className="App">  
-                 <WeatherLocation/>
-                 </div>   
-          <div className="contenedor">
-                <Routers />
+                    
+                  <Header /> 
+                  <WeatherLocation/>  
 
-            </div>
+                  
+                    
+        
+                <Routers />
+              
+            
         </div>
 		)
 	}

@@ -4,7 +4,10 @@ import WeatherData from '../WeatherData/index';
 
 
 
-const WeatherLocation = () => (<div> 
+const WeatherLocation = () => (
+
+<div className="WeatherLocacionCont"> 
+
 
 <Ubicacion city={'Venezuela'}/>
 <WeatherData/>

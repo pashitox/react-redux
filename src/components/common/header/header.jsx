@@ -35,6 +35,7 @@ const theme = createMuiTheme({
 class Header extends Component {
   render() {
       return (
+          
         <MuiThemeProvider theme={theme}>
           <div className="app-bar">
               <AppBar position="static">
