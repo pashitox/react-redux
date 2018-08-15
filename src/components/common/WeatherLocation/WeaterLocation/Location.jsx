@@ -1,6 +1,8 @@
 import React from 'react';
-
 import  PropTypes from 'prop-types';
+import './styles.css'
+
+
 
 const Ubicacion = ({city}) => {  //super proooooo
 
@@ -9,7 +11,7 @@ const Ubicacion = ({city}) => {  //super proooooo
 
    // const city = props.city;
    // const {city} = props; //destrupturin woooo
-    return(<div> <h1>
+    return(<div className="LocationCont"> <h1>
         
         {city}  
         
