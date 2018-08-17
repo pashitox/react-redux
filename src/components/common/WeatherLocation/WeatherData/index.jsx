@@ -3,6 +3,7 @@ import WeatherTemperature from './WeatherTemperature';
 import WeatherExtraInfo from './WeatherExtraInfo';
 import PropTypes from 'prop-types';
 
+
 import './styles.css';
 
 

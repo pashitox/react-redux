@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import Ubicacion from './Location';
 import WeatherData from '../WeatherData/index';
+import transformWeather from '../../../services/transformWeather'
 import './styles.css'
 
-import {SUN } from '../../../constants/weathers';
 
+
+import CircularProgress from '@material-ui/core/CircularProgress';
+import orange from '@material-ui/core/colors/orange';
 
 const location = "Santiago,cl"
 const api_key = "86b966db3eedd4db847278ca9d9de1f7";
@@ -13,12 +16,6 @@ const Api_weather= `http://api.openweathermap.org/data/2.5/weather?q=${location}
 
 console.log(Api_weather);
 
-const data = {
-    temperature: -1,
-      weatherState: SUN, 
-      humidity: 50, 
-      wind: '10'
-}
 
 //const data2 = {
 //    temperature: 8,
@@ -28,38 +25,35 @@ const data = {
 //}
 
 
-
 class WeatherLocation extends Component {
  constructor(){
      super();
      
      this.state = {
-         city: 'venezuela',
+         city: location,
 
-         Data: data
+         data: null
      }      
  }
-
-       
-
-
-
     handleUpdateClick = () => {
 
-        fetch(Api_weather).then(Data =>{
+        fetch(Api_weather).then(data =>{
             
           
-            console.log(Data);
+            //console.log(Data);
 
-            return Data.json();
+            return data.json();
         }).then(Weather_Data => {
-            debugger;
+           // debugger;
 
-          
-            console.log(Weather_Data);
+          const data = transformWeather(Weather_Data);
+            //console.log(data);
+          this.setState({data})
+            
+          console.log(Weather_Data);
         })
 
-        console.log("actulizado")
+        //console.log("actulizado")
        // this.setState({
         //city: 'buenos aires!',
        // Data: data2 
@@ -67,18 +61,25 @@ class WeatherLocation extends Component {
        // });
 
     }
-    
 
-
+    componentWillMount(){
+        this.handleUpdateClick()
+    }
      render = () => {
 
-    const {city, Data} = this.state;
+    const {city, data} = this.state;
+
+    const styles = theme => ({
+        progress: {
+          margin: theme.spacing.unit * 2,
+        },
+      });
      
      return (<div className="WeatherLocacionCont">
         
         <Ubicacion city={city}/>
-         <WeatherData data={Data}/>
-         <button onClick={this.handleUpdateClick}> actulizar</button>
+        {data ? <WeatherData data={data}/> :  <CircularProgress className={styles.progress} style={{ color: orange[500] }} thickness={10} />}
+        
 
      </div>);
     };
