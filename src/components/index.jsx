@@ -13,7 +13,7 @@ import './index.css';
 
 import Header from './common/header/header';
 import Routers from "./Route/Route";
-import WeatherLocation from './common/WeatherLocation/WeaterLocation/WeatherLocation';
+import LocationList from './common/WeatherLocation/WeaterLocation/LocationList';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 import orange from '@material-ui/core/colors/orange';
@@ -25,19 +25,38 @@ const theme = createMuiTheme({
         primary: { main: orange[500] }, // Purple and green play nicely together.
         secondary: { main: '#11cb5f' }, // This is just green.A700 as hex.
       },
+      
      
     });
 
-
+const cityes  = [
+  'Buenos Aires,ar',
+  'Santiago,cl',
+  'Caracas,ve',
+  'Panama,pa'
+];
 
 export default class Root extends Component {
 	render() {
+
+  // el slind  console.log("debuger");
+
+handleSelectionLocacion = city => {
+
+  console.log("handelseltion");
+
+}
+
 		return (
                   <MuiThemeProvider theme={theme}>
             <div>
                     
                   <Header /> 
-                  <WeatherLocation/>     
+                  
+                  <LocationList cityes={cityes} 
+                  onSelectedLocation={this.handleSelectionLocacion}> 
+                  
+                  </LocationList>    
         
                 <Routers />
               

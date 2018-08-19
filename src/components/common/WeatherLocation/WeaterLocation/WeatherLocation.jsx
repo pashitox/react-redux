@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
+
+import  PropTypes from 'prop-types';
 import Ubicacion from './Location';
 import WeatherData from '../WeatherData/index';
 import transformWeather from '../../../services/transformWeather'
-import './styles.css'
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 
 
-import CircularProgress from '@material-ui/core/CircularProgress';
-import orange from '@material-ui/core/colors/orange';
+const url = "http://api.openweathermap.org/data/2.5/weather";
 
-const location = "Santiago,cl"
 const api_key = "86b966db3eedd4db847278ca9d9de1f7";
 
-const Api_weather= `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${api_key}`;
 
-console.log(Api_weather);
+
+//console.log(Api_weather);
 
 
 //const data2 = {
@@ -26,20 +26,27 @@ console.log(Api_weather);
 
 
 class WeatherLocation extends Component {
- constructor(){
+
+     constructor({ city }){
      super();
      
      this.state = {
-         city: location,
-
+         city,
          data: null
      }      
  }
+ 
     handleUpdateClick = () => {
 
+
+        const {city} = this.state;
+       
+
+        const Api_weather = `${url}?q=${city}&appid=${api_key}`;
+
+
         fetch(Api_weather).then(data =>{
-            
-          
+                     
             //console.log(Data);
 
             return data.json();
@@ -50,7 +57,7 @@ class WeatherLocation extends Component {
             //console.log(data);
           this.setState({data})
             
-          console.log(Weather_Data);
+          //console.log(Weather_Data);
         })
 
         //console.log("actulizado")
@@ -69,16 +76,15 @@ class WeatherLocation extends Component {
 
     const {city, data} = this.state;
 
-    const styles = theme => ({
-        progress: {
-          margin: theme.spacing.unit * 2,
-        },
-      });
+    const {onWeatherLocationClick} = this.props;
+
      
-     return (<div className="WeatherLocacionCont">
+     return (<div className="WeatherLocacionCont" onClick={onWeatherLocationClick}>
         
         <Ubicacion city={city}/>
-        {data ? <WeatherData data={data}/> :  <CircularProgress className={styles.progress} style={{ color: orange[500] }} thickness={10} />}
+        {data ? <WeatherData data={data}/> :  
+
+         <LinearProgress  variant="query" />}
         
 
      </div>);
@@ -86,4 +92,12 @@ class WeatherLocation extends Component {
 
 }
 
+WeatherLocation.propTypes = {
+
+ city: PropTypes.string,
+ onWeatherLocationClick: PropTypes.func
+}
+
+
+   
 export default WeatherLocation;
