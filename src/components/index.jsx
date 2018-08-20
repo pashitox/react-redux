@@ -37,16 +37,19 @@ const cityes  = [
 ];
 
 export default class Root extends Component {
+
+  HandleSelectionLocacion = city => {
+
+    //console.log(`andleSelectionLocacion,${city}` )
+  
+  }
+  
+
+
 	render() {
 
   // el slind  console.log("debuger");
-
-handleSelectionLocacion = city => {
-
-  console.log("handelseltion");
-
-}
-
+ 
 		return (
                   <MuiThemeProvider theme={theme}>
             <div>
@@ -54,7 +57,7 @@ handleSelectionLocacion = city => {
                   <Header /> 
                   
                   <LocationList cityes={cityes} 
-                  onSelectedLocation={this.handleSelectionLocacion}> 
+                  onSelectedLocation={this.HandleSelectionLocacion}> 
                   
                   </LocationList>    
         
