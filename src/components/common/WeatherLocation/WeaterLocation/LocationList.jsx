@@ -8,8 +8,8 @@ import WeatherLocation from './WeatherLocation';
 const LocationList = ({cityes, onSelectedLocation}) => {
 
     const hanldeWeatherLocation = city => {
-        console.log("handeloncclik");
-        console.log(city);
+        //console.log("handeloncclik");
+        //console.log(city);
         onSelectedLocation(city);
     }
     
