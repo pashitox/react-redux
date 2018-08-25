@@ -3,14 +3,14 @@ import orange from '@material-ui/core/colors/orange';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import React, { Component } from 'react';
 // Componentes
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
 // The CODE!
 import Header from './common/header/header';
-import LocationList from './common/WeatherLocation/WeaterLocation/LocationList';
 // Estilos
 import './index.css';
 import Routers from "./Route/Route";
 
-import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
 
@@ -27,18 +27,13 @@ const theme = createMuiTheme({
      
     });
 
-const cityes  = [
-  'Buenos Aires,ar',
-  'Santiago,cl',
-  'Caracas,ve',
-  'Panama,pa'
-];
+
 
 export default class Root extends Component {
 
   HandleSelectionLocacion = city => {
 
-    console.log(`andleSelectionLocacion,${city}` )
+    //console.log(`andleSelectionLocacion,${city}` )
   
   }
   
@@ -49,31 +44,19 @@ export default class Root extends Component {
   // el slind  console.log("debuger");
  
 		return (
-                  <MuiThemeProvider theme={theme}>
-                       
-                  <Grid>  
-                    
-                 
-                  <Row>
-                    <Col xs={12} md={6}>
-                  <LocationList cityes={cityes} 
-                  onSelectedLocation={this.HandleSelectionLocacion}> 
-                  </LocationList>  
-                  </Col>
-                  <Col xs={12} md={6}>
-                  <div className='detail'></div>
-                  </Col>
-                   </Row> 
-                 
+                <MuiThemeProvider theme={theme}>
+ <Grid>     
+ <Row>
+	<Col xs={12}>
+ <Header/>
+  </Col>
+  </Row>
+ </Grid>
+
+                 <Routers/>
 
 
-              
-            </Grid>
-        
-
-
-
-         </MuiThemeProvider>
+                 </MuiThemeProvider>
 		)
 	}
 }

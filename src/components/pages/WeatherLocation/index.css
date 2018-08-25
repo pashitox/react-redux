@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+body {
+  font-family: Roboto;
+  margin: unset;
+  background-color: #eee;
+}
+
+.contenedor {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+
+
+
+.detail {
+    padding-top: 22px;
+    background: red;
+    height: 100vh;
+    width: 100%;
+  }
+  

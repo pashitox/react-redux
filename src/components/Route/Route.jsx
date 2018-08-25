@@ -4,7 +4,7 @@ import React from 'react';
 import { 
 	Route,
 	BrowserRouter,	
-	Redirect,
+	//Redirect,
 	Switch
 } from 'react-router-dom'
 
@@ -20,22 +20,22 @@ import Ofertas from '../pages/Ofertas'
 import Pedidos from '../pages/Pedidos'
 import Prime from '../pages/Prime'
 
-import About from '../pages/About'
+import Weather from '../pages/WeatherLocation/Weather'
 import Protegida from '../pages/protected/'
 import Register from '../pages/Register'
 import Login from '../pages/Login'
 import Error404 from '../pages/Error404'
 
-const PrivateRoute = ( { component: Component, authed, rest } ) => (
-    <Route
-      {...rest}
-      render={
-        props => authed === true
-          ? <Component {...props} />
-          : <Redirect to={ { pathname: '/login', state: { from: props.location } } } />
-      }
-    />
-  )
+//const PrivateRoute = ( { component: Component, authed, rest } ) => (
+  //  <Route
+//      {...rest}
+//      render={
+//        props => authed === true
+//          ? <Component {...props} />
+//          : <Redirect to={ { pathname: '/login', state: { from: props.location } } } />
+//      }
+//    />
+//  )
 
 
 class Routers extends React.Component {
@@ -84,9 +84,9 @@ class Routers extends React.Component {
               <Route  exact path='/Departamento'  component={Departamento} />
               <Route  path='/MiAmazon' exact component={MiAmazon} />
               <Route  path='/Ofertas' component={Ofertas} />
-              <PrivateRoute authed={this.state.authed} path='/Pedidos' component={Pedidos} />
-              <PrivateRoute authed={this.state.authed} path='/Prime' component={Prime} />
-              <Route  path='/About' component={About} />
+              <Route  path='/Pedidos' component={Pedidos} />
+              <Route  path='/Prime' component={Prime} />
+              <Route  path='/Weather' component={Weather} />
               <Route  path='/login' component={Login} />
               <Route  path='/registro' component={Register} />
               <Route  path='/protegida' component={Protegida} />
