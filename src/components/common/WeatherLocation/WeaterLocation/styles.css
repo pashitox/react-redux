@@ -40,3 +40,13 @@
     margin: 0;
 
 }
+
+
+.ForesCast-title {
+    color: white;
+    text-align: center;
+    background: gray;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}

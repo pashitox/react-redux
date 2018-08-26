@@ -32,7 +32,7 @@ const LocationList = ({cityes, onSelectedLocation}) => {
 
 
 
-    return (<div>
+    return (<div className="LocationList">
         {sTrToComponent(cityes)}
         </div>);
 };

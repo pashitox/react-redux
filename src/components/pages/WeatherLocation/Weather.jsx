@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import LocationList from '../../common/WeatherLocation/WeaterLocation/LocationList';
+import ForestCast from '../../common/WeatherLocation/WeaterLocation/ForestCast';
+
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import './index.css';
@@ -15,10 +17,26 @@ const cityes  = [
 
 
 export default class Weather extends Component {
+     
+     constructor(){
+       super();
+ this.state = {city: null};
+ }
+
+
+
 	HandleSelectionLocacion = city => {
-	//	console.log(`andleSelectionLocacion,${city}`)  
+		this.setState({city})
+
+	//this.setState({city:city })
+
+		console.log(`andleSelectionLocacion,${city}`)  
  }
 	render() {
+
+        const { city} = this.state;
+
+
 		return (
 	<Grid>        
 	<Row>
@@ -29,7 +47,12 @@ export default class Weather extends Component {
 			</Col>
 			<Col xs={12} md={6}>
 			
-			<div className='detail'></div>
+			<div className='detail'>	 
+   {!city ?
+ <h2   >No se ha seleccionado la ciudad</h2>:
+ <ForestCast city={city}> </ForestCast> }
+			
+			</div>
 		
 			</Col>
  </Row> 

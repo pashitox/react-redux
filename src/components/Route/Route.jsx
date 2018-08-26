@@ -81,8 +81,8 @@ class Routers extends React.Component {
         <Switch>
             <Route exact path='/' component={Home} />
           
-              <Route  exact path='/Departamento'  component={Departamento} />
-              <Route  path='/MiAmazon' exact component={MiAmazon} />
+              <Route  path='/Departamento'  component={Departamento} />
+              <Route  path='/MiAmazon' component={MiAmazon} />
               <Route  path='/Ofertas' component={Ofertas} />
               <Route  path='/Pedidos' component={Pedidos} />
               <Route  path='/Prime' component={Prime} />

@@ -1,0 +1,18 @@
+
+
+@media (max-width: 64em) {
+        .LocationList{
+
+            background: black;
+            
+            max-block-size: 30vh;
+            overflow: auto;
+            margin-bottom: 20px;
+        }
+}
+
+.ForesCast-title {
+    
+   
+    text-align: center;
+}

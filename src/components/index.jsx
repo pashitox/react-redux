@@ -4,12 +4,13 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import React, { Component } from 'react';
 // Componentes
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import './index.css';
 
-// The CODE!
+
+
+import Routers from "./Route/Route";
 import Header from './common/header/header';
 // Estilos
-import './index.css';
-import Routers from "./Route/Route";
 
 
 
