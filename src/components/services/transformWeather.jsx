@@ -54,9 +54,10 @@ const data = {
     temperature,
     weatherState,
     wind: `${speed}m/s`
-
-
 }
+
+
+
 //console.log(data);
 
 return data
