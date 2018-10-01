@@ -34,8 +34,13 @@ export default class Root extends Component {
 
   HandleSelectionLocacion = city => {
 
-    //console.log(`andleSelectionLocacion,${city}` )
+    this.setState({city});
+
+    console.log(`andleSelectionLocacion,${city}` )
+    
+    
   
+   
   }
   
 
@@ -45,7 +50,7 @@ export default class Root extends Component {
   // el slind  console.log("debuger");
  
 		return (
-                <MuiThemeProvider theme={theme}>
+   <MuiThemeProvider theme={theme}>
  <Grid>     
  <Row>
 	<Col xs={12}>

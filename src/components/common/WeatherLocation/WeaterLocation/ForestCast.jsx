@@ -38,7 +38,25 @@ this.state = {forescastData: null}
 
 componentDidMount(){
 
-    const url_forecast = `${url}?q=${this.props.city}&appid=${api_key}`;
+this.UpdateCity(this.props.city)
+
+    
+  }
+
+componentWillReceiveProps(nextPros){
+    if (nextPros.city !== this.props.city) {
+
+        this.setState({forescastData: null})
+        this.UpdateCity(nextPros.city)
+    }
+
+
+}
+
+
+UpdateCity =(city)=> {
+   
+    const url_forecast = `${url}?q=${city}&appid=${api_key}`;
 
     fetch(url_forecast).then(data =>
          (data.json()) 
@@ -58,13 +76,20 @@ componentDidMount(){
 
 );
 
+
+
 }
 
 
-ForesCastData(){
 
-    return<h1>"render itum"</h1>;  
-//return days.map((day, index)=>( <ForeCastItem  key={index} WeekDay={day} hour={10} data={data}></ForeCastItem>));         
+ForesCastData(forescastData){
+
+   
+return forescastData.map(forescast=>( <ForeCastItem  
+    key={`${forescast.WeekDay}${forescast.hour}`} 
+    WeekDay={forescast.WeekDay}
+     hour={forescast.hour}     
+      data={forescast.data}></ForeCastItem>));         
           
 
 }
@@ -85,7 +110,7 @@ renderProgress = () => {
 
         return (<div>
             <h2 className="ForesCast-title"> pronostico extendido {city}</h2> 
-               {forescastData   ?  this.ForesCastData() : this.renderProgress() }
+               {forescastData   ?  this.ForesCastData(forescastData) : this.renderProgress() }
             </div>)
     }
 }

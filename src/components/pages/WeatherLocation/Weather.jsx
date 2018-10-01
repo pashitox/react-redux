@@ -4,6 +4,8 @@ import ForestCast from '../../common/WeatherLocation/WeaterLocation/ForestCast';
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
+import {createStore} from 'redux';
+
 import './index.css';
 
 
@@ -15,6 +17,13 @@ const cityes  = [
 	'Panama,pa'
   ];
 
+
+  const store = createStore(()=>{},
+ window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+ const setCity = value => ({type:'setCity', value});
+
+  
 
 export default class Weather extends Component {
      
@@ -31,6 +40,8 @@ export default class Weather extends Component {
 	//this.setState({city:city })
 
 		console.log(`andleSelectionLocacion,${city}`)  
+
+		store.dispatch(setCity(city));
  }
 	render() {
 

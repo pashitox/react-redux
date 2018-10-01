@@ -1,12 +1,23 @@
 
+  .LocationList{
+
+    background: black;
+    
+    max-block-size: 85vh;
+ 
+    margin-bottom: 20px;
+}
+
+
+
 
 @media (max-width: 64em) {
         .LocationList{
 
             background: black;
             
-            max-block-size: 30vh;
-            overflow: auto;
+            max-block-size: 40vh;
+         
             margin-bottom: 20px;
         }
 }
